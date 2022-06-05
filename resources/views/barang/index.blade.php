@@ -24,10 +24,9 @@
                         <th width="5%">No. </th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
+                        <th>Kode Jenis Barang</th>
                         <th>Jumlah Instock</th>
                         <th>Satuan</th>
-                        <th>Tanggal Penerimaan</th>
-                        <th>Tanggal Distribusi</th>
                         <th width="15%">Action</th>
                     </thead>
                     <tbody>
@@ -76,10 +75,9 @@
                     // {data: 'kode_satuan',sortable:false},
                     {data: 'kode_barang'},
                     {data: 'nama_barang'},
-                    {data: 'keterangan'},
+                    {data: 'jenis_barang'},
                     {data: 'jumlah_instock'},
-                    {data: 'tgl_penerimaan_terakhir'},
-                    {data: 'tanggal_distribusi'},
+                    {data: 'satuan'},
                     {data: 'aksi',searchable : false, sortable:false}
                 ]               
             });
@@ -107,10 +105,16 @@
                     nama_barang: {
                         required: true,
                     },
+                    jenis_barang:{
+                        required: true,
+                    }
                 },
                 messages: {
                     nama_barang: {
                         required: "Mohon Isi Nama Barang !",
+                    },
+                    jenis_barang: {
+                        required: "Mohon Pilih Jenis Barang !",
                     },
                 },
                 errorElement: 'span',
@@ -145,12 +149,14 @@
             $('#modal-form form')[0].reset();
             $('#modal-form form').attr('action',url);
             $('#modal-form [name=_method]').val('put');
-            $('#modal-form [name=jenis_barang]').focus();
 
             $.get(url)
                 .done((response) => {
-                    $('#modal-form [name=jenis_barang]').val(response.nama_satuan);
-                    $('#modal-form [name=nama_barag]').val(response.keterangan);
+                    $('#modal-form [name=jenis_barang]').val(response.kode_jenis_barang);
+                    // $('#inputID').select2('data', {id: response.kode_jenis_barang, a_key: response.kode_jenis_barang});
+                    $('#modal-form [name=nama_barang]').val(response.nama_barang);
+                    $('#modal-form [name=satuan]').val(response.satuan);
+
                 })
                 .fail((error)=> {
                     alert('Tidak dapat menampilkan data !');
