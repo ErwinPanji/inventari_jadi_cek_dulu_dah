@@ -83,7 +83,7 @@ class BarangController extends Controller
         $kode_barang = '';
 
         if($checkIt > 0){
-            $kode__barang = 'BR'.$thn.$bln.substr('000'.$angka + 1, -3);
+            $kode_barang = 'BR'.$thn.$bln.substr('000'.$angka + 1, -3);
         }else{
             $kode_barang = $kode_generator;
         }

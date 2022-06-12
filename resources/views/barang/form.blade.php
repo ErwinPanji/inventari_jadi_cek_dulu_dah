@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">Jenis Barang</label>
+                        <label for="">Jenis Barang<small> *)</small></label>
                         <select class="form-control select2 select2bs4" style="width: 100%;" name="jenis_barang" id="jenis_barang" required>
                             <option value="">Pilih Jenis Barang</option>
                             @foreach ($jenisbarang as $key => $item)
@@ -22,11 +22,11 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="">Nama Barang</label>
+                        <label for="">Nama Barang<small> *)</small></label>
                         <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Penyedia" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Jenis Barang</label>
+                        <label for="">Satuan<small> *)</small></label>
                         <select class="form-control select2 select2bs4" style="width: 100%;" name="satuan" id="satuan" required>
                             <option value="">Pilih Satuan</option>
                             @foreach ($satuan as $key => $item)

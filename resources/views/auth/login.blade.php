@@ -5,8 +5,8 @@
     <div class="login-logo">
       <a href="{{ url('/') }}">
         <img src="{{asset('img/logo.jpg')}}" alt="AdminLTE Logo" class="brand-image elevation-3" style=" height: 70px;">
-        <b>SMKN 4 JAKARTA</b>
-      </a>
+      </a><br>
+      <b>SMKN 4 JAKARTA</b>
     </div>
     <!-- /.login-logo -->
     <div class="card">

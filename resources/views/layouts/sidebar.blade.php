@@ -80,7 +80,7 @@
           </li>
           <li class="nav-header">FORM</li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{route('penerimaanbarang.index')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Penerimaan Barang
@@ -88,7 +88,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{route('sppb.index')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 SPPB
@@ -96,7 +96,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{route('bast.index')}}" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 BAST - DIST
@@ -105,7 +105,7 @@
           </li>
           <li class="nav-header">REPORT</li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Stok Opname
@@ -113,7 +113,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Kartu Persediaan
@@ -122,7 +122,7 @@
           </li>
           <li class="nav-header">SETTING</li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="{{route('profilskpd.index')}}" class="nav-link">
               <i class="nav-icon fas fa-user-cog"></i>
               <p>
                 Profil SKPD - UKPD
@@ -130,7 +130,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="../widgets.html" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Management User

@@ -199,7 +199,8 @@ return [
 
         /**Yajra Datatables */
         Yajra\DataTables\DataTablesServiceProvider::class,
-
+        /**DOMPPDF */
+        Barryvdh\DomPDF\ServiceProvider::class,
     ],
 
     /*
@@ -218,6 +219,8 @@ return [
 
         /**Yajra Datatables */
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
+        /**DomPDF */
+        'PDF' => Barryvdh\DomPDF\Facade::class,
     ])->toArray(),
 
 ];

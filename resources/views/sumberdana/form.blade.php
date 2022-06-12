@@ -13,7 +13,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">Nama Sumber Dana</label>
+                        <label for="">Nama Sumber Dana<small> *)</small></label>
                         <input type="text" name="sumberdana" id="sumberdana" class="form-control" placeholder="Sumber Dana" required autofocus>
                       </div>
                 </div>

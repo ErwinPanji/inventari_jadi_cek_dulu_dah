@@ -15,7 +15,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <button onclick="addForm('{{route('penyedia.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"> Tambah</i></button>
+              <button onclick="addForm('{{route('penyedia.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-reponsive">

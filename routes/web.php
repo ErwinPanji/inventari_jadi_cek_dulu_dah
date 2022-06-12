@@ -7,6 +7,13 @@ use App\Http\Controllers\PenyediaController;
 use App\Http\Controllers\SumberDanaController;
 use App\Http\Controllers\PemohonController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PenerimaanBarangController;
+use App\Http\Controllers\SPPBController;
+use App\Http\Controllers\ListBarangSPPBController;
+use App\Http\Controllers\BASTController;
+use App\Http\Controllers\ListBarangBASTController;
+use App\Http\Controllers\profilSKPDController;
+
 
 
 /*
@@ -50,4 +57,35 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/barang/data', [BarangController::class,'data'])->name('barang.data');
     Route::resource('/barang', BarangController::class);
+
+    Route::get('/penerimaanbarang/data', [PenerimaanBarangController::class,'data'])->name('penerimaanbarang.data');
+    Route::resource('/penerimaanbarang', PenerimaanBarangController::class);
+
+    Route::get('/sppb/data', [SPPBController::class,'data'])->name('sppb.data');
+    Route::get('/sppb/{id}/create', [SPPBController::class, 'create'])->name('sppb.create');
+    Route::get('/sppb/pdf/{id}', [SPPBController::class, 'cetakpdf'])->name('sppb.cetakpdf');
+    Route::resource('/sppb', SPPBController::class)
+        ->except('create');
+
+    Route::get('/sppblist/{id}/data', [ListBarangSPPBController::class, 'data'])->name('sppblist.data');
+    // Route::get('/sppblist/loadform/{diskon}/{total}', [ListBarangSPPBController::class, 'loadForm'])->name('sppblist.loadform');
+    // Route::put('/sppblist/updateket/{id}', [ListBarangSPPBController::class, 'updateket'])->name('sppblist.updateket');
+    Route::resource('/sppblist', ListBarangSPPBController::class)
+        ->except('create', 'show', 'edit');
+
+    Route::get('/bast/data', [BASTController::class,'data'])->name('bast.data');
+    Route::get('/bast/{id}/create', [BASTController::class, 'create'])->name('bast.create');
+    Route::get('/bast/pdf/{id}', [BASTController::class, 'cetakpdf'])->name('bast.cetakpdf');
+    Route::resource('/bast', BASTController::class)
+        ->except('create');
+
+    Route::get('/bastlist/{id}/data', [ListBarangBASTController::class, 'data'])->name('bastlist.data');
+    // Route::get('/sppblist/loadform/{diskon}/{total}', [ListBarangSPPBController::class, 'loadForm'])->name('sppblist.loadform');
+    // Route::put('/sppblist/updateket/{id}', [ListBarangSPPBController::class, 'updateket'])->name('sppblist.updateket');
+    Route::resource('/bastlist', ListBarangBASTController::class)
+        ->except('create', 'show', 'edit');
+
+    Route::get('/profilskpd', [profilSKPDController::class, 'index'])->name('profilskpd.index');
+    Route::get('/profilskpd/first', [profilSKPDController::class, 'show'])->name('profilskpd.show');
+    Route::post('/profilskpd', [profilSKPDController::class, 'update'])->name('profilskpd.update');
 });

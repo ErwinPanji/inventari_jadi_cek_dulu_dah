@@ -15,7 +15,7 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <button onclick="addForm('{{route('barang.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"> Tambah</i></button>
+              <button onclick="addForm('{{route('barang.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-reponsive">
@@ -107,6 +107,9 @@
                     },
                     jenis_barang:{
                         required: true,
+                    },
+                    satuan:{
+                        required: true,
                     }
                 },
                 messages: {
@@ -115,6 +118,9 @@
                     },
                     jenis_barang: {
                         required: "Mohon Pilih Jenis Barang !",
+                    },
+                    satuan: {
+                        required: "Mohon Pilih Satuan !",
                     },
                 },
                 errorElement: 'span',
@@ -140,6 +146,9 @@
             $('#modal-form form').attr('action',url);
             $('#modal-form [name=_method]').val('post');
             $('#modal-form [name=jenis_barang]').focus();
+            $('#modal-form [name=jenis_barang] option[value =""]').attr("selected","selected").select2().trigger('change');
+            $('#modal-form [name=satuan] option[value =""]').attr("selected","selected").select2().trigger('change');
+
         }
         
         function editForm(url){
@@ -152,10 +161,12 @@
 
             $.get(url)
                 .done((response) => {
-                    $('#modal-form [name=jenis_barang]').val(response.kode_jenis_barang);
+                    // $('#modal-form [name=jenis_barang]').val(response.kode_jenis_barang);
+                    $('#modal-form [name=jenis_barang] option[value ="'+response.kode_jenis_barang+'"]').attr("selected","selected").select2().trigger('change');
                     // $('#inputID').select2('data', {id: response.kode_jenis_barang, a_key: response.kode_jenis_barang});
                     $('#modal-form [name=nama_barang]').val(response.nama_barang);
-                    $('#modal-form [name=satuan]').val(response.satuan);
+                    // $('#modal-form [name=satuan]').val(response.satuan);
+                    $('#modal-form [name=satuan] option[value ="'+response.satuan+'"]').attr("selected","selected").select2().trigger('change');
 
                 })
                 .fail((error)=> {

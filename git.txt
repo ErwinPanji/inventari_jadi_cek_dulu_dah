@@ -1,0 +1,18 @@
+echo "# inventaris" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+
+git remote add origin https://github.com/ErwinPanji/inventaris.git
+atau
+git remote set-url origin https://github.com/ErwinPanji/inventaris.git
+
+git push -u origin main
+
+
+
+clone git
+git clone https://github.com/sandinur157/tuturial-membuat-aplikasi-point-of-sales.git
+
+composer update / composer install

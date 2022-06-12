@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
   <!-- DataTables -->
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
@@ -22,6 +20,22 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/select2/css/select2.min.css')}}">
   <link rel="stylesheet" href="{{asset('AdminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+
+  <!-- daterange picker -->
+  <link rel="stylesheet" href="{{asset('AdminLTE/plugins/daterangepicker/daterangepicker.css')}}">
+
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{{asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="{{asset('AdminLTE/plugins/bs-stepper/css/bs-stepper.min.css')}}">
+
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
+
+  <!-- Toastr -->
+  <link rel="stylesheet" href="{{asset('AdminLTE/plugins/toastr/toastr.min.css')}}">
+  
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <!-- Site wrapper -->
@@ -78,8 +92,6 @@
 <script src="{{asset('AdminLTE/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('AdminLTE/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 <!-- jQuery Mapael -->
 <script src="{{asset('AdminLTE/plugins/jquery-mousewheel/jquery.mousewheel.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/raphael/raphael.min.js')}}"></script>
@@ -102,12 +114,32 @@
 <script src="{{asset('AdminLTE/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
 
+<!-- InputMask -->
+<script src="{{asset('AdminLTE/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('AdminLTE/plugins/inputmask/jquery.inputmask.min.js')}}"></script>
+
+<!-- Tempusdominus Bootstrap 4 for datimepicker -->
+<script src="{{asset('AdminLTE/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+<!-- Bootstrap Switch -->
+<script src="{{asset('AdminLTE/plugins/bootstrap-switch/js/bootstrap-switch.min.js')}}"></script>
+<!-- BS-Stepper -->
+<script src="{{asset('AdminLTE/plugins/bs-stepper/js/bs-stepper.min.js')}}"></script>
+
 <!--Validation-->
 <script src="{{asset('AdminLTE/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
 <script src="{{asset('AdminLTE/plugins/jquery-validation/additional-methods.min.js')}}"></script>
 
 <!-- Select2 -->
 <script src="{{asset('AdminLTE/plugins/select2/js/select2.full.min.js')}}"></script>
+
+<!-- date-range-picker -->
+<script src="{{asset('AdminLTE/plugins/daterangepicker/daterangepicker.js')}}"></script>
+
+<!-- Toastr -->
+<script src="{{asset('AdminLTE/plugins/toastr/toastr.min.js')}}"></script>
+
+<!-- AdminLTE App -->
+<script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
 
 <!-- AdminLTE for demo purposes -->
 {{-- <script src="dist/js/demo.js"></script> --}}

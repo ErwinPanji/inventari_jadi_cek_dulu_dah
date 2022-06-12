@@ -13,12 +13,12 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">Satuan</label>
+                        <label for="">Satuan<small> *)</small></label>
                         <input type="text" name="satuan" id="satuan" class="form-control" placeholder="Satuan" required autofocus>
                       </div>
                     <div class="form-group">
                         <label for="">Keterangan</label>
-                        <textarea class="form-control" name="keterangan" id="keterangan" rows="3" placeholder="Keterangan ..."></textarea>
+                        <textarea class="form-control" name="keterangan" id="keterangan" rows="3" placeholder="Keterangan ..." style="resize: none;"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

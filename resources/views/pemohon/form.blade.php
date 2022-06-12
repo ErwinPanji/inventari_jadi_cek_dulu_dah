@@ -13,11 +13,11 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">Nama Pemohon</label>
+                        <label for="">Nama Pemohon<small> *)</small></label>
                         <input type="text" name="nama_pemohon" id="nama_pemohon" class="form-control" placeholder="Nama Pemohon" required autofocus>
                     </div>
                     <div class="form-group">
-                        <label for="">NIP/NIIKI</label>
+                        <label for="">NIP/NIIKI<small> *)</small></label>
                         <input type="text" name="nip_niiki" id="nip_niiki" class="form-control" placeholder="NIP/NIIKI" required>
                     </div>
                     <div class="form-group">
