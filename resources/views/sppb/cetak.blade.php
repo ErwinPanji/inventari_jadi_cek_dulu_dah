@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Surat Perintah Penyaluran Barang</title>
 
-    <link rel="stylesheet" href="{{ asset('/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}">
+    {{-- <link rel="stylesheet" href="{{ asset('/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{asset('AdminLTE/dist/css/adminlte.min.css')}}"> --}}
     <style>
         @page {
             size: 21.59cm 35.56cm;
@@ -21,7 +21,12 @@
 
         div.ratakanankiri {
             text-align: justify;
-            } 
+        }
+        
+        .table-border table,.table-border th,.table-border tr,.table-border td{
+            border: 1px solid black;
+            /* border-collapse: collapse; */
+        }
     </style>
 
 </head>
@@ -46,16 +51,18 @@
             Berdasarkan Surat Permintaan Barang (SPB) dari {{$jabatan_pemohon}} Nomor {{$nomor_spb}} Tanggal {{$tanggal_spb}}, 
             dengan ini diperintahkan Kepada Pengurus Barang untuk mendistribusikan/mengeluarkan persediaan, 
             sebagaimana tersebut di bawah ini.<br>
+        </p>
+        <p>
             Daftar barang persediaan yang didistribusikan/dikeluarkan adalah sebagai berikut :
         </p>
-        <table class="table table-bordered">
+        <table class="table-border" width="100%" style="border-collapse: collapse;">
             <thead>
                 <tr>
                     <th width="5%">No</th>
-                    <th>Nama Barang</th>
-                    <th>Jumlah</th>
-                    <th>Satuan</th>
-                    <th>Keterangan</th>
+                    <th>Uraian Nama Barang</th>
+                    <th width = "10%">Jumlah</th>
+                    <th width = "10%">Satuan</th>
+                    <th width = "20%">Keterangan</th>
                 </tr>
             </thead>
             <tbody>
@@ -71,7 +78,7 @@
             </tbody>
         </table>
 
-        <div class="float-right" style="margin-top : 1cm;">
+        <div style="margin-top : 1cm; float: left;">
             <p>Kepala {{$nama_skpd}}</p>
             <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
         </div>

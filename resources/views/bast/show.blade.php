@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="modal-form">Daftar Barang SPPB</h4>
+                <h4 class="modal-title" id="modal-form">Daftar Barang BAST</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,7 +16,7 @@
                             <th>Jumlah Permintaan</th>
                             <th>Satuan</th>
                             <th>Keterangan</th>
-                            <th><i class="fa fa-cog"></i></th>
+                            {{-- <th><i class="fa fa-cog"></i></th> --}}
                         </tr>
                     </thead>
                 </table>

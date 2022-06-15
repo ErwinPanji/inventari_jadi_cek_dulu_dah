@@ -13,6 +13,8 @@ use App\Http\Controllers\ListBarangSPPBController;
 use App\Http\Controllers\BASTController;
 use App\Http\Controllers\ListBarangBASTController;
 use App\Http\Controllers\profilSKPDController;
+use App\Http\Controllers\StokOpnameController;
+use App\Http\Controllers\KartuPersediaanController;
 
 
 
@@ -88,4 +90,12 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/profilskpd', [profilSKPDController::class, 'index'])->name('profilskpd.index');
     Route::get('/profilskpd/first', [profilSKPDController::class, 'show'])->name('profilskpd.show');
     Route::post('/profilskpd', [profilSKPDController::class, 'update'])->name('profilskpd.update');
+
+    Route::get('/stokopname', [StokOpnameController::class, 'index'])->name('stokopname.index');
+    Route::get('/stokopname/data/{awal}/{akhir}/{kode}', [StokOpnameController::class, 'data'])->name('stokopname.data');
+    Route::get('/stokopname/pdf/{awal}/{akhir}/{kode}', [StokOpnameController::class, 'exportPDF'])->name('stokopname.export_pdf');
+
+    Route::get('/kartupersediaan', [KartuPersediaanController::class, 'index'])->name('kartupersediaan.index');
+    Route::get('/kartupersediaan/data/{awal}/{akhir}/{kode}', [KartuPersediaanController::class, 'data'])->name('kartupersediaan.data');
+    Route::get('/kartupersediaan/pdf/{awal}/{akhir}/{kode}', [KartuPersediaanController::class, 'exportPDF'])->name('kartupersediaan.export_pdf');
 });

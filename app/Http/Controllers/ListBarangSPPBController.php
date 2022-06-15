@@ -106,7 +106,7 @@ class ListBarangSPPBController extends Controller
         $kode_generator = 'LS'.$thn.$bln.substr('000'.$angka, -3);
 
         $checkIt = ListBarangSPPB::where('kode_list_barang_sppb', $kode_generator)->count();
-        $kode_sppb = '';
+        $kode_list_barang_sppb = '';
 
         if($checkIt > 0){
             $kode_list_barang_sppb = 'LS'.$thn.$bln.substr('000'.$angka + 1, -3);

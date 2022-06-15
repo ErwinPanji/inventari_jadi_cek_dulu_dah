@@ -105,7 +105,7 @@
           </li>
           <li class="nav-header">REPORT</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('stokopname.index')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Stok Opname
@@ -113,7 +113,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{route('kartupersediaan.index')}}" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 Kartu Persediaan

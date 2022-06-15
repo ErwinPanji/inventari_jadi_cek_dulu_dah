@@ -77,7 +77,7 @@ class SPPBController extends Controller
         $kode_sppb = '';
 
         if($checkIt > 0){
-            $kode_sppb = 'BR'.$thn.$bln.substr('000'.$angka + 1, -3);
+            $kode_sppb = 'SP'.$thn.$bln.substr('000'.$angka + 1, -3);
         }else{
             $kode_sppb = $kode_generator;
         }
@@ -238,6 +238,6 @@ class SPPBController extends Controller
         $jabatan_pemohon = $pemohon->jabatan;
 
     	$pdf = PDF::loadview('sppb.cetak',compact('nomor_spb','tanggal_spb','sppblist','nama_kepala','nip_kepala','nama_skpd','jabatan_pemohon'));
-    	return $pdf->download('');
+    	return $pdf->download('SPPB_'.$nomor_spb);
     }
 }

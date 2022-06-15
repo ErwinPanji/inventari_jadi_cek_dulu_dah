@@ -9,6 +9,7 @@ use App\Models\SumberDana;
 use App\Models\JenisBarang;
 use App\Models\satuan;
 use App\Models\Barang;
+use App\Models\profilSKPD;
 
 class PenerimaanBarangController extends Controller
 {
@@ -25,7 +26,10 @@ class PenerimaanBarangController extends Controller
         $satuan = satuan::all()->pluck('nama_satuan','kode_satuan');
         $barang = Barang::all()->pluck('nama_barang','kode_barang');
 
-        return view('penerimaanbarang.index',compact('penyedia','sumberdana','jenisbarang','satuan','barang'));
+        $setting = profilSKPD::first();
+        $ppn = $setting->ppn;
+
+        return view('penerimaanbarang.index',compact('penyedia','sumberdana','jenisbarang','satuan','barang','ppn'));
     }
 
     public function data(){
@@ -110,8 +114,12 @@ class PenerimaanBarangController extends Controller
         $penerimaanbarang->nama_barang =  $kode_barang[1];
         $penerimaanbarang->kode_barang = $kode_barang[0];
 
+        $barang = Barang::where('kode_barang', $kode_barang[0])->first();
+
         $penerimaanbarang->spesifikasi_barang = $request->spesifikasi;
         $penerimaanbarang->jumlah_barang = $request->jumlah_barang;
+        $penerimaanbarang->instock = $barang->jumlah_instock;
+        
         $penerimaanbarang->satuan_barang = $request->satuan;
         $penerimaanbarang->harga_satuan = $request->harga_satuan;
         $penerimaanbarang->subtotal = $request->subtotal;
@@ -120,7 +128,6 @@ class PenerimaanBarangController extends Controller
         $penerimaanbarang->keterangan = $request->keterangan;
 
         if($penerimaanbarang->save()){
-            $barang = Barang::where('kode_barang', $kode_barang[0])->first();
 
             $barang->jumlah_instock = $barang->jumlah_instock + $request->jumlah_barang;     
             $barang->tanggal_penerimaan_terakhir = $request->tanggal_penerimaan;

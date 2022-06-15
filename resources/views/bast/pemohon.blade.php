@@ -1,4 +1,4 @@
-<div class="modal fade" id="modal-pemohon" role="dialog" aria-labelledby="modal-barang">
+<div class="modal fade" id="modal-pemohon" role="dialog" aria-labelledby="modal-pemohon">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -24,7 +24,7 @@
                                 <td>{{ $item->nip_niiki }}</td>
                                 <td>{{ $item->nama_pemohon }}</td>
                                 <td>{{ $item->jabatan}}</td>
-                                <td><a href="{{ route('sppb.create', $item->kode_pemohon) }}" class="btn btn-primary btn-sm btn-flat">
+                                <td><a href="{{ route('bast.create', $item->kode_pemohon) }}" class="btn btn-primary btn-sm btn-flat">
                                     <i class="fa fa-check-circle"></i> Pilih</a></td>
                             </tr>
                         @endforeach

@@ -33,24 +33,24 @@
                     
                 </div>
                 <div class="card-body">
-                    <form action="{{ route('sppb.store') }}" class="form-listsppb" method="post" id="form-hide">
+                    <form action="{{ route('bast.store') }}" class="form-listbast" method="post" id="form-hide">
                         @csrf
                         <div class="row">
                             <div class="col-lg-6">
-                                <input type="hidden" name="kode_sppb" value="{{ $kode_sppb }}">
+                                <input type="hidden" name="kode_bast_dist" value="{{ $kode_bast_dist }}">
                                 <div class="form-group">
-                                    <label for="nomof_spb">Nomor SPB <small>*)</small> :</label>
+                                    <label for="nomof_spb">Nomor SPPB <small>*)</small> :</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="text" class="form-control" name = "nomor_spb" id="nomor_spb" data-inputmask='"mask": "999/SPB/9999"' data-mask required>
+                                        <input type="text" class="form-control" name = "nomor_sppb" id="nomor_sppb" data-inputmask='"mask": "999/SPPB/9999"' data-mask required>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                <label>Tanggal SPB<small> *)</small></label>
-                                <div class="input-group input-group-sm date" id="tanggalspb" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#tanggalspb" name="tanggal_spb" id="tanggal_spb" required/>
-                                    <div class="input-group-append" data-target="#tanggalspb" data-toggle="datetimepicker">
+                                <label>Tanggal SPPB<small> *)</small></label>
+                                <div class="input-group input-group-sm date" id="tanggalsppb" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#tanggalsppb" name="tanggal_sppb" id="tanggal_sppb" required/>
+                                    <div class="input-group-append" data-target="#tanggalsppb" data-toggle="datetimepicker">
                                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="kode_barang">Kode Barang</label>
                                     <div class="input-group input-group-sm">
-                                        <input type="hidden" name="kode_sppb" value="{{ $kode_sppb }}">
+                                        <input type="hidden" name="kode_bast_dist" value="{{ $kode_bast_dist }}">
                                         <input type="text" class="form-control" name="kode_barang" id="kode_barang" readonly>
                                         <span class="input-group-append">
                                             <button  onclick="tampilBarang()" type="button" class="btn btn-info btn-flat"><i class="fa fa-arrow-right"></i></button>
@@ -80,7 +80,8 @@
                             <th width="5%">No</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
-                            <th width="15%">Jumlah</th>
+                            <th width="15%">Stock</th>
+                            <th width="15%">Jumlah Permintaan</th>
                             <th>Sutuan</th>
                             <th>Keterangan</th>
                             <th width="15%"><i class="fa fa-cog"></i></th>
@@ -95,7 +96,7 @@
     </div>
 </div>
 
-@includeIf('sppblist.barang')
+@includeIf('bastlist.barang')
 @endsection
 
 @push('scripts')
@@ -108,12 +109,13 @@
             serverSide: true,
             autoWidth: false,
             ajax: {
-                url: '{{ route('sppblist.data', $kode_sppb) }}',
+                url: '{{ route('bastlist.data', $kode_bast_dist) }}',
             },
             columns: [
                 {data: 'DT_RowIndex', searchable: false, sortable: false},
                 {data: 'kode_barang'},
                 {data: 'nama_barang'},
+                {data: 'stok'},
                 {data: 'jumlah_permintaan'},
                 {data: 'satuan'},
                 {data: 'keterangan'},
@@ -128,7 +130,7 @@
         });
 
         //Date picker
-        $('#tanggalspb').datetimepicker({
+        $('#tanggalsppb').datetimepicker({
             format: 'yy-MM-DD'
         });
 
@@ -152,7 +154,7 @@
                 return;
             }
 
-            $.post(`{{ url('/sppblist') }}/${id}`, {
+            $.post(`{{ url('/bastlist') }}/${id}`, {
                     '_token': $('[name=csrf-token]').attr('content'),
                     '_method': 'put',
                     'jumlah': jumlah,
@@ -181,7 +183,7 @@
                 return;
             }
 
-            $.post(`{{ url('/sppblist') }}/${id}`, {
+            $.post(`{{ url('/bastlist') }}/${id}`, {
                     '_token': $('[name=csrf-token]').attr('content'),
                     '_method': 'put',
                     'jumlah': jumlah,
@@ -200,10 +202,10 @@
         });
 
         $('.btn-simpan').on('click', function () {
-            $('.form-listsppb').submit();
+            $('.form-listbast').submit();
         });
 
-        $('.form-listsppb').validate({
+        $('.form-listbast').validate({
             rules: {
                 nomor_spb: {
                 required: true,
@@ -261,7 +263,7 @@
     }
 
     function tambahBarang() {
-        $.post('{{ route('sppblist.store') }}', $('.form-barang').serialize())
+        $.post('{{ route('bastlist.store') }}', $('.form-barang').serialize())
             .done(response => {
                 $('#kode_barang').focus();
                 // table.ajax.reload();

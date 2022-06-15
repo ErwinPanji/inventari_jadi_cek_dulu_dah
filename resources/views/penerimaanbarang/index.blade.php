@@ -265,7 +265,7 @@
             var jumlah_barang = document.getElementById('jumlah_barang').value;
             var harga_satuan = document.getElementById('harga_satuan').value;
             var subtotal = parseInt(jumlah_barang) * parseInt(harga_satuan);
-            var ppn = parseFloat(subtotal) * (11/100);
+            var ppn = parseFloat(subtotal) * ({{$ppn}}/100);
             var total = parseFloat(subtotal) + parseFloat(ppn);
 
             if (!isNaN(subtotal) || !isNaN(ppn) || !isNaN(total)) {

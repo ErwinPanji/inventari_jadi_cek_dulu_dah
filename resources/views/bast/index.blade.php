@@ -16,8 +16,8 @@
           <div class="card" id="card-table">
             <div class="card-header">
                 <button onclick="addForm()" class="btn btn-success btn-sm btn-flat"><i class="fas fa-plus-circle"></i> Tambah BAST</button>
-                @empty(! session('kode_sppb'))
-                    <a href="{{ route('sppblist.index') }}" class="btn btn-info btn-sm btn-flat"><i class="fa fa-book-open"></i> Transaksi Aktif</a>
+                @empty(! session('kode_bast_dist'))
+                    <a href="{{ route('bastlist.index') }}" class="btn btn-info btn-sm btn-flat"><i class="fa fa-book-open"></i> Transaksi Aktif</a>
                 @endempty
             </div>
             <!-- /.card-header -->
@@ -25,8 +25,8 @@
                 <table class="table table-striped" id="table-main">
                     <thead>
                         <th width="5%">No. </th>
-                        <th>Nomor SPB</th>
-                        <th>Tanggal SPB</th>
+                        <th>Nomor SPPB</th>
+                        <th>Tanggal SPPB</th>
                         <th>Nama Pemohon</th>
                         <th width="15%">Action</th>
                     </thead>
@@ -47,13 +47,13 @@
 
       <div class="row">
         <div class="col-md-12">
-            {{-- @includeIf('sppb.form') --}}
+            {{-- @includeIf('bast.form') --}}
         </div>
       </div>
       <!-- /.row -->
     </div><!--/. container-fluid -->
-@includeIf('sppb.pemohon')
-@includeIf('sppb.show')
+@includeIf('bast.pemohon')
+@includeIf('bast.show')
 @endsection
 
 @push('scripts')
@@ -67,12 +67,12 @@
                 "order": [], //Initial no order.
                 "aaSorting": [],
                 ajax: {
-                    url : '{{ route ('sppb.data') }}',
+                    url : '{{ route ('bast.data') }}',
                 },
                 columns:[
                     {data: 'DT_RowIndex',searchable : false, sortable:false},
-                    {data: 'nomor_spb'},
-                    {data: 'tanggal_spb'},
+                    {data: 'nomor_sppb'},
+                    {data: 'tanggal_sppb'},
                     {data: 'nama_pemohon'},
                     {data: 'aksi',searchable : false, sortable:false}
                 ]               
@@ -91,7 +91,7 @@
                     {data: 'jumlah'},
                     {data: 'satuan'},
                     {data: 'keterangan'},
-                    {data: 'aksi', searchable: false, sortable: false}
+                    // {data: 'aksi', searchable: false, sortable: false}
                 ]
             })
             
@@ -113,7 +113,7 @@
                 }
             });
 
-            $('#sppb-form').validate({
+            $('#bast-form').validate({
                 rules: {
                     nomor_spb: {
                         required: true,
@@ -127,10 +127,10 @@
                 },
                 messages: {
                     tanggal_penerimaan: {
-                        required: "Mohon Isi Nomor SPB !",
+                        required: "Mohon Isi Nomor SPPB !",
                     },
                     tanggal_spb:{
-                        required: "Mohon Pilih Tanggal SPB!",
+                        required: "Mohon Pilih Tanggal SPPB!",
                     },
                     nama_pemohon:{
                         required: "Mohon Isi Nama Pemohon !",
@@ -164,7 +164,7 @@
                     return;
                 }
 
-                $.post(`{{ url('/sppb') }}/${id}`, {
+                $.post(`{{ url('/bast') }}/${id}`, {
                         '_token': $('[name=csrf-token]').attr('content'),
                         '_method': 'put',
                         'jumlah': jumlah,
