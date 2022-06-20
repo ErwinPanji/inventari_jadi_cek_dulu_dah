@@ -114,6 +114,6 @@ class StokOpnameController extends Controller
         $data = $this->getData($awal, $akhir, $kode);
 
         $pdf = PDF::loadview('stokopname.cetak',compact('awal', 'akhir','kode','nama_kepala','nip_kepala','nama_skpd','nama_petugas','nip_petugas','jenis_barang','data'));
-    	return $pdf->download('stok_opname'.date('y_m_d'));
+    	return $pdf->download('stok_opname'.date('y_m_d').'.pdf');
     }
 }

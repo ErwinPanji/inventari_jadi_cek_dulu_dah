@@ -42,6 +42,7 @@
             left: 50%;
             -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+            text-align: center;
         }
 
     </style>
@@ -70,12 +71,12 @@
             <tr>
                 <td>2.</td>
                 <td>Nama</td>
-                <td> : ........................................</td>
+                <td> : {{$nama_pemohon}}</td>
             </tr>
             <tr>
                 <td></td>
                 <td>Jabatan</td>
-                <td> : ........................................</td>
+                <td> : {{$nip_pemohon}}</td>
             </tr>
         </table>
         <br>
@@ -111,16 +112,16 @@
         <div class="row">
             <div class="col-md-6" style="float:left">
                 <p>Yang Menyerahkan : <br>Pengurus Barang</p>
-                <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
+                <p style="margin-top: 2cm">{{$nama_petugas}}<br>NIP {{$nip_petugas}}</p>
             </div>
             <div class="col-md-6" style="float:right">
                 <p>Yang Menerima :</p>
-                <p style="margin-top: 2.5cm">{{$nama_pemohon}}<br>NIP/NIIKI {{$nip_pemohon}}</p>
+                <p style="margin-top: 2.5cm">{{$nama_pemohon}}<br>NIP/NIKKI {{$nip_pemohon}}</p>
             </div>
         </div>
-        <div class="center" style="margin-top : 5cm;">
-            <p>Kepala {{$nama_skpd}}</p>
-            <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
+        <div class="center" style="margin-top : 6cm;">
+            <p>Mengetahui, <br>Kepala {{$nama_skpd}}</p>
+            <p style="margin-top: 2cm ;">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
         </div>
     </div>
         

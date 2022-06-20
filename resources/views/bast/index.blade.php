@@ -16,6 +16,8 @@
           <div class="card" id="card-table">
             <div class="card-header">
                 <button onclick="addForm()" class="btn btn-success btn-sm btn-flat"><i class="fas fa-plus-circle"></i> Tambah BAST</button>
+                <button onclick="showFilter()" class="btn btn-warning btn-sm btn-flat"><i class="fas fa-print"></i> Cetak Data</button>
+
                 @empty(! session('kode_bast_dist'))
                     <a href="{{ route('bastlist.index') }}" class="btn btn-info btn-sm btn-flat"><i class="fa fa-book-open"></i> Transaksi Aktif</a>
                 @endempty
@@ -54,6 +56,8 @@
     </div><!--/. container-fluid -->
 @includeIf('bast.pemohon')
 @includeIf('bast.show')
+@includeIf('bast.filter')
+
 @endsection
 
 @push('scripts')
@@ -181,7 +185,26 @@
                     });
             });
 
+            $('input[name="range_tanggal"]').daterangepicker({
+
+            }, function(start, end, label) {
+                $('#tanggal_awal').val(start.format('YYYY-MM-DD'));
+                $('#tanggal_akhir').val(end.format('YYYY-MM-DD'));
+
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+
         });
+
+        function showFilter() {
+            $('#filter-form').modal('show');
+        }
+
+        $("#filter-form" ).submit(function( event ) {
+            $('#filter-form').modal('hide');
+
+        });
+
 
         function showDetail(url) {
             $('#modal-show').modal('show');

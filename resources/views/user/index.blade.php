@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Master Pemohon
+    Management User
 @endsection
 
 @section('breadcrumb')
@@ -15,16 +15,16 @@
         <div class="col-md-12">
           <div class="card">
             <div class="card-header">
-              <button onclick="addForm('{{route('pemohon.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+              <button onclick="addForm('{{route('user.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-reponsive">
                 <table class="table table-striped">
                     <thead>
                         <th width="5%">No. </th>
-                        <th>Nama Pemohon</th>
-                        <th>NIP/NIKKI</th>
-                        <th>Jabatan</th>
+                        <th>Nama Lengkap</th>
+                        <th>Email</th>
+                        <th>Level</th>
                         <th width="15%">Action</th>
                     </thead>
                     <tbody>
@@ -43,7 +43,7 @@
       </div>
       <!-- /.row -->
     </div><!--/. container-fluid -->
-@includeIf('pemohon.form')
+@includeIf('user.form')
 
 @endsection
 
@@ -58,13 +58,13 @@
                 "order": [], //Initial no order.
                 "aaSorting": [],
                 ajax: {
-                    url : '{{ route ('pemohon.data') }}',
+                    url : '{{ route ('user.data') }}',
                 },
                 columns:[
                     {data: 'DT_RowIndex',searchable : false, sortable:false},
-                    {data: 'nama_pemohon'},
-                    {data: 'nip_niiki'},
-                    {data: 'jabatan'},
+                    {data: 'name'},
+                    {data: 'email'},
+                    {data: 'tingkat'},
                     {data: 'aksi',searchable : false, sortable:false}
                 ]               
             });
@@ -87,9 +87,9 @@
                 }
             });
 
-            $('#pemohon-form').validate({
+            $('#user-form').validate({
                 rules: {
-                    nama_pemohon: {
+                    nama_user: {
                         required: true,
                     },
                     nip_niiki: {
@@ -97,8 +97,8 @@
                     },
                 },
                 messages: {
-                    nama_pemohon: {
-                        required: "Mohon Isi Nama Pemohon !",
+                    nama_user: {
+                        required: "Mohon Isi Nama user !",
                     },
                     nip_niiki: {
                         required: "Mohon Isi NIP/NIIKI !",
@@ -121,29 +121,28 @@
 
         function addForm(url){
             $('#modal-form').modal('show');
-            $('#modal-form .modal-title').text('Tambah Pemohon');
+            $('#modal-form .modal-title').text('Tambah User');
 
             $('#modal-form form')[0].reset();
             $('#modal-form form').attr('action',url);
             $('#modal-form [name=_method]').val('post');
-            // $('#modal-form [name=alamat]').text('');
-            $('#modal-form [name=nama_pemohon]').focus();
+            $('#modal-form [name=nama_user]').focus();
         }
         
         function editForm(url){
             $('#modal-form').modal('show');
-            $('#modal-form .modal-title').text('Edit Pemohon');
+            $('#modal-form .modal-title').text('Edit User');
 
             $('#modal-form form')[0].reset();
             $('#modal-form form').attr('action',url);
             $('#modal-form [name=_method]').val('put');
-            $('#modal-form [name=nama_pemohon]').focus();
+            $('#modal-form [name=nama_user]').focus();
 
             $.get(url)
                 .done((response) => {
-                    $('#modal-form [name=nama_pemohon]').val(response.nama_pemohon);
-                    $('#modal-form [name=nip_niiki]').val(response.nip_niiki);
-                    $('#modal-form [name=jabatan]').val(response.jabatan);
+                    $('#modal-form [name=nama_user]').val(response.name);
+                    $('#modal-form [name=email]').val(response.email);
+                    $('#modal-form [name=level]').val(response.level);
                 })
                 .fail((error)=> {
                     alert('Tidak dapat menampilkan data !');

@@ -110,7 +110,7 @@ class KartuPersediaanController extends Controller
         foreach ($outStok as $item) {
             $row = array();
 
-            $sisa -= $item->jumlah_permintaan;
+            $sisa = $item->instock - $item->jumlah_permintaan;
 
             $row['DT_RowIndex'] = $no++;
             $row['tanggal'] = indo_date($item->tanggal_sppb,false);
@@ -118,7 +118,7 @@ class KartuPersediaanController extends Controller
             $row['harga_satuan_masuk'] = '';
             $row['total_harga_masuk'] = '';
             $row['keluar'] = $item->jumlah_permintaan;
-            $row['sisa'] = $item->instock;
+            $row['sisa'] = $sisa;
             $row['keterangan'] = $item->nama_barang;
 
             $data[] = $row;
@@ -169,6 +169,6 @@ class KartuPersediaanController extends Controller
         $data = $this->getData($awal, $akhir, $kode);
 
         $pdf = PDF::loadview('kartupersediaan.cetak',compact('awal', 'akhir','kode','nama_kepala','nip_kepala','nama_skpd','nama_petugas','nip_petugas','nama_barang','satuan','data'));
-    	return $pdf->download('kartu_persediaan'.date('y_m_d'));
+    	return $pdf->download('kartu_persediaan'.date('y_m_d').'.pdf');
     }
 }

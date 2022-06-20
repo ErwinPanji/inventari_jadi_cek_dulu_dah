@@ -16,6 +16,7 @@
           <div class="card" id="card-table">
             <div class="card-header">
               <button onclick="addForm('{{route('penerimaanbarang.store')}}')" class="btn btn-success btn-sm btn-flat"><i class="fa fa-plus-circle"></i> Tambah</button>
+              <button onclick="showFilter()" class="btn btn-warning btn-sm btn-flat"><i class="fas fa-print"></i> Cetak Data</button>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-reponsive">
@@ -51,7 +52,10 @@
       </div>
       <!-- /.row -->
     </div><!--/. container-fluid -->
+@includeIF('penerimaanbarang.filter')
 @endsection
+
+
 
 @push('scripts')
     <script>
@@ -181,7 +185,25 @@
                 unhighlight: function (element, errorClass, validClass) {
                     $(element).removeClass('is-invalid');
                 }
-            });          
+            });      
+            
+            $('input[name="range_tanggal"]').daterangepicker({
+
+            }, function(start, end, label) {
+                $('#tanggal_awal').val(start.format('YYYY-MM-DD'));
+                $('#tanggal_akhir').val(end.format('YYYY-MM-DD'));
+
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+
+        });
+
+        function showFilter() {
+            $('#filter-form').modal('show');
+        }
+
+        $("#filter-form" ).submit(function( event ) {
+            $('#filter-form').modal('hide');
 
         });
 

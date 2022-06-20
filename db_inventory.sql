@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 15 Jun 2022 pada 12.44
+-- Waktu pembuatan: 17 Jun 2022 pada 11.22
 -- Versi server: 10.4.19-MariaDB
 -- Versi PHP: 8.0.6
 
@@ -111,8 +111,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('mEMqfY6gv8Nv1rjNwNBZqimg08citez8m8xppDxO', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTo4OntzOjY6Il90b2tlbiI7czo0MDoiRzVWYlZuWktnOWNyYklBN1pOMGx5VXo5Znl1NzdwSDNlaDN1R3hGYyI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6NDU6Imh0dHBzOi8vbG9jYWxob3N0L2ludmVudGFyaXMvcGVuZXJpbWFhbmJhcmFuZyI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7czoyMToicGFzc3dvcmRfaGFzaF9zYW5jdHVtIjtzOjYwOiIkMnkkMTAkZWdnamdET3hXMmdQbncxOWdSZjdXZVJiNVM5TFp2c0YzdG5Yd3pzWGFIeVNSMjBrTGZRUEsiO3M6MTQ6ImtvZGVfYmFzdF9kaXN0IjtzOjA6IiI7czoxMjoia29kZV9wZW1vaG9uIjtzOjA6IiI7czoxMToidGFuZ2dhbF9zcGIiO3M6MDoiIjt9', 1655289842),
-('yR6qWzDTbk6aL4Tkb08KLEb1s4n7LjVCUiKlnn3O', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiaWhPZ1ZPRUtHV3VkMktGNHhaUXU0em90Vm0zaElkQ2lVb2FjMWZIOSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHBzOi8vbG9jYWxob3N0L2ludmVudGFyaXMvbG9naW4iO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1655289230);
+('49SN2u5UwVGOdExuwJX0A3sFJAg7t8CDgrfrRb5D', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiYmhDelF0dXdvMjRhSnphNjVaWDNpSllrZ2liaWZVZHlzdDdMU2lvQiI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHBzOi8vbG9jYWxob3N0L2ludmVudGFyaXMvYmFzdCI7fXM6NTA6ImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjtpOjE7fQ==', 1655457633),
+('VtLozNiNLU8SFaUW7BjBwPhrZQJbjGHz8YAjP62r', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', 'YTo0OntzOjY6Il90b2tlbiI7czo0MDoiV3BuQWNXa3QyMTBBSmNVbHlFV3IweWV3ZEhXSk9DSFM2N3hlYVBVOCI7czozOiJ1cmwiO2E6MTp7czo4OiJpbnRlbmRlZCI7czozMzoiaHR0cHM6Ly9sb2NhbGhvc3QvaW52ZW50YXJpcy9zcHBiIjt9czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzM6Imh0dHBzOi8vbG9jYWxob3N0L2ludmVudGFyaXMvc3BwYiI7fXM6NjoiX2ZsYXNoIjthOjI6e3M6Mzoib2xkIjthOjA6e31zOjM6Im5ldyI7YTowOnt9fX0=', 1655453717);
 
 -- --------------------------------------------------------
 
@@ -281,7 +281,7 @@ CREATE TABLE `tbl_penerimaan_barang` (
   `kode_jenis_barang` varchar(20) NOT NULL,
   `nama_barang` varchar(50) NOT NULL,
   `kode_barang` varchar(20) NOT NULL,
-  `spesifikasi_barang` text NOT NULL,
+  `spesifikasi_barang` text DEFAULT NULL,
   `jumlah_barang` int(11) NOT NULL,
   `instock` int(11) NOT NULL,
   `satuan_barang` varchar(20) NOT NULL,
@@ -289,7 +289,7 @@ CREATE TABLE `tbl_penerimaan_barang` (
   `subtotal` int(11) NOT NULL,
   `ppn` int(11) NOT NULL,
   `total` int(11) NOT NULL,
-  `keterangan` text NOT NULL,
+  `keterangan` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -452,7 +452,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `level`, `two_factor_secret`, `two_factor_recovery_codes`, `two_factor_confirmed_at`, `remember_token`, `current_team_id`, `profile_photo_path`, `created_at`, `updated_at`) VALUES
-(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$eggjgDOxW2gPnw19gRf7WeRb5S9LZvsF3tnXwzsXaHySR20kLfQPK', '1', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-01 23:53:00', '2022-06-01 23:53:00');
+(1, 'Administrator', 'admin@gmail.com', NULL, '$2y$10$ods0HUEeO9mtLP/Q0GkXeeJhq5y/mdAVzH081/8FurbyxXM7HbkIK', '1', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-01 23:53:00', '2022-06-16 21:17:44'),
+(2, 'Adi', 'adi@gmail.com', NULL, '$2y$10$dXM5.1N/WzD32EhQKCnOpOa.HjPbrAFx6IdjEZ9sAwshJ6lw6IKV6', '3', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-16 21:11:48', '2022-06-16 21:18:54'),
+(6, 'Dr. Rianto Ritonga, M.M.', 'riantoritonga@gmail.com', NULL, '$2y$10$xX06Wkq3ehzj.fxhzw80ue8sV49n/MFCeC4iCG4rDM73kW9DXVoPu', '2', NULL, NULL, NULL, NULL, NULL, NULL, '2022-06-16 23:26:41', '2022-06-16 23:26:41');
 
 --
 -- Indexes for dumped tables
@@ -609,7 +611,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

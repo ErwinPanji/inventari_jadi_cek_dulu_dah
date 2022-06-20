@@ -183,6 +183,7 @@
 
         });
 
+       
         function showDetail(url) {
             $('#modal-show').modal('show');
 

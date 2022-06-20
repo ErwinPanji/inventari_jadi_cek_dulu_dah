@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name = "csrf-token" content="{{ csrf_token() }}">
+  <link rel="icon" href="{{asset('img/logo.jpg')}}" type="image/png">
   <title>{{config('app.name')}} | @yield('title')</title>
 
   <!-- Google Font: Source Sans Pro -->
@@ -140,6 +141,20 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE/dist/js/adminlte.min.js')}}"></script>
+<script>
+  $(document).ready(function(){
+    var url = window.location;
+      // // for sidebar menu entirely but not cover treeview
+      $('ul.nav-sidebar li a').filter(function() {
+           return this.href == url;
+      }).parent().addClass('active');
+
+      // for treeview
+      $('ul.nav-treeview li a').filter(function() {
+           return this.href == url;
+      }).parentsUntil(".nav-sidebar > .nav-treeview").addClass('active');
+  });
+</script>
 
 <!-- AdminLTE for demo purposes -->
 {{-- <script src="dist/js/demo.js"></script> --}}

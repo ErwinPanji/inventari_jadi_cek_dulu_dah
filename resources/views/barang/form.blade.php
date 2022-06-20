@@ -23,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">Nama Barang<small> *)</small></label>
-                        <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Penyedia" required>
+                        <input type="text" name="nama_barang" id="nama_barang" class="form-control" placeholder="Nama Barang" required>
                     </div>
                     <div class="form-group">
                         <label for="">Satuan<small> *)</small></label>

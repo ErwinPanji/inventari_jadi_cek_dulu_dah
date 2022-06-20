@@ -11,7 +11,7 @@
     <style>
         @page {
             size: 21.59cm 35.56cm;
-            margin-top: 5cm;
+            margin-top: 2cm;
             /* margin-bottom: 100px; */
             margin-right: 1.65cm;
             margin-left: 2.25cm;
@@ -106,7 +106,7 @@
             </div>
             <div class="col-md-6" style="float:right">
                 <p>Jakarta,..............................<br>Pengurus Barang</p>
-                <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
+                <p style="margin-top: 2cm">{{$nama_petugas}}<br>NIP {{$nip_petugas}}</p>
             </div>
         </div>
 

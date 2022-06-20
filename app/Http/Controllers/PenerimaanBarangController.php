@@ -10,6 +10,7 @@ use App\Models\JenisBarang;
 use App\Models\satuan;
 use App\Models\Barang;
 use App\Models\profilSKPD;
+use PDF;
 
 class PenerimaanBarangController extends Controller
 {
@@ -222,5 +223,16 @@ class PenerimaanBarangController extends Controller
         $penerimaanbarang->delete();
 
         return response()->json('Data berhasil diupdate !', 200);
+    }
+
+    public function cetakListPDF(Request $request){
+        $data = PenerimaanBarang::leftjoin('tbl_penyedia','tbl_penerimaan_barang.kode_penyedia','tbl_penyedia.kode_penyedia')
+        ->leftjoin('tbl_sumber_dana','tbl_penerimaan_barang.kode_sumber_dana','tbl_sumber_dana.kode_sumber_dana')
+        ->leftjoin('tbl_jenis_barang','tbl_penerimaan_barang.kode_jenis_barang','tbl_jenis_barang.kode_jenis_barang')
+        ->select('tbl_penerimaan_barang.*','tbl_penyedia.nama_penyedia','tbl_sumber_dana.sumber_dana','tbl_jenis_barang.jenis_barang')
+        ->whereBetween('tanggal_penerimaan', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+        
+        $pdf = PDF::loadview('penerimaanbarang.pdf',compact('data'));
+    	return $pdf->download('Buku_Penerimaan_Barang'.date('Y-m-d').'.pdf');
     }
 }

@@ -238,6 +238,7 @@ class SPPBController extends Controller
         $jabatan_pemohon = $pemohon->jabatan;
 
     	$pdf = PDF::loadview('sppb.cetak',compact('nomor_spb','tanggal_spb','sppblist','nama_kepala','nip_kepala','nama_skpd','jabatan_pemohon'));
-    	return $pdf->download('SPPB_'.$nomor_spb);
+    	return $pdf->download('SPPB_'.$nomor_spb.'.pdf');
     }
+
 }

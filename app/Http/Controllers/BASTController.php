@@ -241,6 +241,18 @@ class BASTController extends Controller
         $nip_pemohon = $pemohon->nip_niiki;
 
     	$pdf = PDF::loadview('bast.cetak',compact('nomor_sppb','tanggal_sppb','bastlist','nama_kepala','nip_kepala','nama_skpd','nama_pemohon','nip_pemohon','nama_petugas','nip_petugas'));
-    	return $pdf->download('BAST_'.$nomor_sppb);
+    	return $pdf->download('BAST_'.$nomor_sppb.'.pdf');
+    }
+
+    public function cetakListPDF(Request $request){
+        $data = BAST::leftjoin('tbl_pemohon','tbl_pemohon.kode_pemohon','tbl_bast_dist.kode_pemohon')
+        ->leftjoin('tbl_list_barang_bast_dist','tbl_list_barang_bast_dist.kode_bast_dist','tbl_bast_dist.kode_bast_dist')
+        ->leftjoin('tbl_barang','tbl_barang.kode_barang','tbl_list_barang_bast_dist.kode_barang')
+        ->select('tbl_bast_dist.*','tbl_list_barang_bast_dist.jumlah_permintaan','tbl_list_barang_bast_dist.instock','tbl_list_barang_bast_dist.satuan',
+        'tbl_barang.nama_barang','tbl_pemohon.*')
+        ->whereBetween('tanggal_sppb', [$request->tanggal_awal, $request->tanggal_akhir])->get();
+        
+        $pdf = PDF::loadview('bast.pdf',compact('data'));
+    	return $pdf->download('Rekapitulasi_distribusi_barang'.date('Y-m-d').'.pdf');
     }
 }

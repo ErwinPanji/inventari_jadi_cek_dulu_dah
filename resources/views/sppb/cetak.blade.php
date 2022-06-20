@@ -78,7 +78,7 @@
             </tbody>
         </table>
 
-        <div style="margin-top : 1cm; float: left;">
+        <div style="margin-top : 1cm; float: right;">
             <p>Kepala {{$nama_skpd}}</p>
             <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
         </div>

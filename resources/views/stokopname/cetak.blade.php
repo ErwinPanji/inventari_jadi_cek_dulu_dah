@@ -93,7 +93,7 @@
             </div>
             <div class="col-md-6" style="float:right">
                 <p>Pengurus Barang</p>
-                <p style="margin-top: 2cm">{{$nama_kepala}}<br>NIP {{$nip_kepala}}</p>
+                <p style="margin-top: 2cm">{{$nama_petugas}}<br>NIP {{$nip_petugas}}</p>
             </div>
         </div>
 
