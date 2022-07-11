@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Stok Opname
+    Kartu Persediaan
 @endsection
 
 @section('breadcrumb')
